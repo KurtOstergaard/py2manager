@@ -81,3 +81,11 @@ timestamp: 2013-09-11T10:09:13.861765
 ALTER TABLE auth_user ADD image CHAR(512);
 timestamp: 2013-09-11T10:09:13.865279
 ALTER TABLE auth_user ADD address CHAR(512);
+timestamp: 2013-09-11T11:02:42.651326
+ALTER TABLE project ADD start_date DATE NOT NULL;
+timestamp: 2013-09-11T11:07:01.512376
+ALTER TABLE project ADD start_date DATE NOT NULL;
+timestamp: 2013-09-11T13:04:58.817660
+ALTER TABLE project ADD start_date DATE NOT NULL;
+timestamp: 2013-09-11T13:16:49.375495
+ALTER TABLE project ADD start_date DATE;

@@ -10,7 +10,7 @@ p5
 I00
 sS'sortable'
 p6
-I6
+I7
 sS'sql'
 p7
 S'DATE NOT NULL'
@@ -69,7 +69,7 @@ sg7
 S'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE'
 p22
 sg9
-I01
+I00
 sg10
 S'reference auth_user'
 p23
@@ -81,7 +81,7 @@ I512
 sg5
 I00
 sg6
-I7
+I8
 sg7
 S'CHAR(1) NOT NULL'
 p26
@@ -107,9 +107,25 @@ I00
 sg10
 S'id'
 p31
-ssS'company_name'
+ssS'start_date'
 p32
 (dp33
+g4
+I512
+sg5
+I00
+sg6
+I6
+sg7
+S'DATE'
+p34
+sg9
+I00
+sg10
+g11
+ssS'company_name'
+p35
+(dp36
 g4
 I512
 sg5
@@ -118,10 +134,10 @@ sg6
 I4
 sg7
 S'INTEGER REFERENCES company (id) ON DELETE CASCADE'
-p34
+p37
 sg9
 I01
 sg10
 S'reference company'
-p35
+p38
 ss.
