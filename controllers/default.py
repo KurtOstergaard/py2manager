@@ -21,6 +21,11 @@ def add():
     project_form = SQLFORM(db.project).process()
     return dict(project_form=project_form)
 
+@auth.requires_login()
+def company():
+    company_form = SQLFORM(db.company).process()
+    return dict(company_form=company_form)
+
 def tester():
     return locals()
 
