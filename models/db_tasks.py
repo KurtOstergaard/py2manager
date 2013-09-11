@@ -11,7 +11,7 @@ db.company.url.requires=IS_EMPTY_OR(IS_URL())
 db.define_table('project',
 	Field('name', notnull=True),
 	Field('employee_name', db.auth_user, notnull=True),
-	Field('company_name', 'reference comapny', notnull=True),
+	Field('company_name', 'reference company', notnull=True),
 	Field('description', 'text', notnull=True),
 	Field('due_date', 'date', notnull=True),
 	Field('completed', 'boolean', notnull=True),

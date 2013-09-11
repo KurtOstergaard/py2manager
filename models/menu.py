@@ -24,10 +24,13 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), []),
+    (T('Add Project'), False, URL('default', 'add'), []),
+    (T('Add Company'), False, URL('default', 'company'), []),
+    (T('Employees'), False, URL('default', 'employee'), [])
 ]
 
-DEVELOPMENT_MENU = True
+DEVELOPMENT_MENU = False
 
 #########################################################################
 ## provide shortcuts for development. remove in production
