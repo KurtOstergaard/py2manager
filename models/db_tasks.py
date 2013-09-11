@@ -19,3 +19,18 @@ db.define_table('project',
 	format = '%(company_name)s')
 
 db.project.employee_name.readable = db.project.employee_name.writeable = False
+
+db.project.start_date.requires = IS_DATE(format=T('%m-%d-%Y'), error_message='Must be MM-DD-YYYY!')
+db.project.due_date.requires = IS_DATE(format=T('%m-%d-%Y'), error_message='Must be MM-DD-YYYY!')
+
+db.define_table('note',
+	Field('post_id', 'reference project', writable=False),
+	Field('post', 'text', notnull=True),
+	Field('created_on', 'datetime', default=request.now),
+	Field('created_by', db.auth_user, default=auth.user_id))
+
+db.note.post_id.readable = db.note.post_id.writeable = False
+db.note.created_on.readable = db.note.created_on.writeable = False
+db.note.created_on.requires = IS_DATE(format=T('%m-%d-%Y'),
+	error_message='Must be MM-DD-YYYY!')
+db.note.created_by.readable = db.note.created_by.writeable = False

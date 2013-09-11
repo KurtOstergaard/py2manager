@@ -89,3 +89,12 @@ timestamp: 2013-09-11T13:04:58.817660
 ALTER TABLE project ADD start_date DATE NOT NULL;
 timestamp: 2013-09-11T13:16:49.375495
 ALTER TABLE project ADD start_date DATE;
+timestamp: 2013-09-11T15:00:14.255862
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post_id INTEGER REFERENCES project (id) ON DELETE CASCADE,
+    post TEXT NOT NULL,
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!

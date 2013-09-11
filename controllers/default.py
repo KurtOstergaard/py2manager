@@ -11,9 +11,22 @@
 
 @auth.requires_login()
 def index():
-    projects = db(db.project).select()
-    users = db(db.auth_user).select()
-    companies = db(db.company).select()
+    response.flash = T('Welcome!')
+    notes = [lambda project: A('Notes', _class="btn",
+        _href=URL("default", "note", args=[project.id]))]
+    grid = SQLFORM.grid(db.project, create=False,
+        links=notes, fields=[db.project.name, db.project.employee_name,
+        db.project.company_name, db.project.start_date,
+        db.project.due_date, db.project.completed],
+        deletable=False, maxtextlength=50)
+    return locals()
+
+@auth.requires_login()
+def note():
+    project = db.project(request.args(0))
+    db.note.post_id.default = project.id
+    form = crud.create(db.note) if auth.user else "Loging to Post to the Project"
+    allnotes = db(db.note.post_id==project.id).select()
     return locals()
 
 @auth.requires_login()
@@ -24,7 +37,18 @@ def add():
 @auth.requires_login()
 def company():
     company_form = SQLFORM(db.company).process()
-    return dict(company_form=company_form)
+    grid = SQLFORM.grid(db.company, create=False, deletable=False, editable=False, maxtextlength=50, 
+        orderby=db.company.company_name)
+    return locals()
+
+@auth.requires_login()
+def employee():
+    employee_form = SQLFORM(db.auth_user).process()
+    grid = SQLFORM.grid(db.auth_user, create=False, 
+        fields=[db.auth_user.first_name, db.auth_user.last_name, 
+        db.auth_user.email], deletable=False, editable=False,
+        maxtextlength=50)
+    return locals()
 
 def tester():
     return locals()
