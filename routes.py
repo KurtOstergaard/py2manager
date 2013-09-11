@@ -39,3 +39,11 @@ routers = {
 routers = dict(
 	BASE = dict(default_application='py2manager'),
 	)
+
+"""
+Big time Turn off the ERRORS for users, someday, maybe
+routes_onerror = [
+	('*/*', '/py2manager/static/error.html')
+	]
+That's it.
+"""
